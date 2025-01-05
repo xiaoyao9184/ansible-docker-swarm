@@ -1,12 +1,20 @@
 ---
+- include: debian.yml
+  when: >
+        ansible_os_family == "Debian" and
+        docker_swarm_config_pre_requisites_package is defined
+
+- include: redhat.yml
+  when: >
+        ansible_os_family == "RedHat" and
+        docker_swarm_config_pre_requisites_package is defined
+
 - name: pre-reqs | Installing Python Pre-Reqs
   pip:
     name: "{{ item }}"
     state: "present"
   become: true
-  with_items:
-    - 'docker'
-    - 'docker-compose'
+  with_items: '{{ docker_swarm_pre_requisites_pip | default([]) }}'
 
 - name: pre-reqs | Ensuring Docker Engine Is Running
   service:

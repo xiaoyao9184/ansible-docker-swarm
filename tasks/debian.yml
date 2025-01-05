@@ -1,5 +1,5 @@
 ---
-- name: debian | Installing Pre-Reqs
+- name: pre-reqs | debian | Installing Pre-Reqs
   apt:
     name: "python3-pip"
     state: "present"

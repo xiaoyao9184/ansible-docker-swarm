@@ -1,6 +1,17 @@
 ---
 # defaults file for ansible-docker-swarm
 
+# Define Docker swarm pre requisites customizations
+docker_swarm_config_pre_requisites: false
+
+# Define Docker swarm pre requisites system package customizations
+docker_swarm_config_pre_requisites_package: false
+
+# Define Docker swarm pre requisites pip packages
+docker_swarm_pre_requisites_pip:
+  - docker
+  - docker-compose
+
 # Define Docker interface to auto fill `docker_swarm_addr`
 docker_swarm_interface: "enp0s8"
 

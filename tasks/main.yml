@@ -1,13 +1,8 @@
 ---
 # tasks file for ansible-docker-swarm
 
-- include: debian.yml
-  when: ansible_os_family == "Debian"
-
-- include: redhat.yml
-  when: ansible_os_family == "RedHat"
-
 - include: pre-reqs.yml
+  when: docker_swarm_config_pre_requisites
 
 - include: cluster.yml
 
