@@ -5,7 +5,8 @@
     state: "present"
   become: true
   with_items:
-    - 'docker-py'
+    - 'docker'
+    - 'docker-compose'
 
 - name: pre-reqs | Ensuring Docker Engine Is Running
   service:
